@@ -10,7 +10,7 @@
 ```
 opkg install procps-ng-pgrep
 opkg install daemonize
-WGET https://github.com/Di1Ly/OdroidGOAtari800/releases/download/New/youtubeUnblock_0.3.2-3d50c00-1_armv7-3.2.ipk
+wget https://github.com/Di1Ly/OdroidGOAtari800/releases/download/New/youtubeUnblock_0.3.2-3d50c00-1_armv7-3.2.ipk
 opkg install youtubeUnblock_0.3.2-3d50c00-1_armv7-3.2.ipk
 ```
 после установки пакета, необходимо поправить скрипт, а отчнее функцию в нем
