@@ -1,73 +1,25 @@
 Данная инструкция по установке является частным случаем применения проекта  Waujito youtubeUnblock https://github.com/Waujito/youtubeUnblock.
 Проверено на нескольких роутерах ASUS RT-AX56U.
 
-Краткая инструкциия:
+Если ранее устанавливали даннй пакет, инструкция по обновлению есть ниже пункт 2.
+
+1. Краткая инструкциия:
 
 Необходим роутер с прошивкой [Asuswrt-Merlin](https://www.asuswrt-merlin.net/), на котором установлен [Entware](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Entware).
 Соединяемся с роутером по SSH, я использую PuTTY. Вводим логин и пароль на вход роутера.
 Далее в коммандной строке исполняем комманды, если спрашивает подтверждение, подтверждаем нажатием "Y".
 
+Доставляем необходимые пакеты для тех кто ставит первый раз. Для тех кто обновляется после пункта 2. Эти пакеты уже установлены. Повторно ставить не надо.
 ```
 opkg install procps-ng-pgrep
 opkg install daemonize
-wget https://github.com/Di1Ly/OdroidGOAtari800/releases/download/New/youtubeUnblock_0.3.2-3d50c00-1_armv7-3.2.ipk
-opkg install youtubeUnblock_0.3.2-3d50c00-1_armv7-3.2.ipk
 ```
-после установки пакета, необходимо поправить скрипт, а отчнее функцию в нем
+Закачиваем пакет и устанавливаем
 ```
-nano /opt/etc/init.d/S91youtubeUnblock
+wget https://github.com/Di1Ly/OdroidGOAtari800/releases/download/New2/youtubeUnblock_1.0.0-e9b033c-armv7-3.2-1_armv7-3.2.ipk
+opkg install youtubeUnblock_1.0.0-e9b033c-armv7-3.2-1_armv7-3.2.ipk
 ```
-Находим в тексте такой код:
-```
-_iptables()
-{
-	ARG="$@"	
-	CMD=$1 # iptables or ip6tables
-	ACTION=$2 # -I, -A, -D
-	RULE=${@:3}  
 
-	$CMD -C $RULE 2>/dev/null
-	exists=$(( ! $? ))
-
-	if [[ $ACTION == "-A" ]] || [[ $ACTION == "-I" ]]
-	then
-		if [ $exists -eq 0 ]; then
-			$ARG || exit 1
-		fi
-	else # -D
-		if [ $exists -ne 0 ]; then
-			$ARG
-		fi
-	fi
-}
-```
-Заменяем его на
-```
-_iptables()
-{
-	ARG="$@"	
-	CMD=$1 # iptables or ip6tables
-	ACTION=$2 # -I, -A, -D
-        shift; shift;
-	RULE="$@"
-
-	$CMD -C $RULE 2>/dev/null
-
-	exists=$(( ! $? ))
-
-	if [[ $ACTION == "-A" ]] || [[ $ACTION == "-I" ]]
-	then
-		if [ $exists -eq 0 ]; then
-			$ARG || exit 1
-		fi
-	else # -D
-		if [ $exists -ne 0 ]; then
-			$ARG
-		fi
-	fi
-}
-```
-Жмем для выходя из редактирования Ctrl+X, соглашаемся сохранить файл Y, подтверждаем то же имя Enter
 Запускаем наш скрипт в режиме демона
 ```
 daemonize /opt/etc/init.d/S91youtubeUnblock start
@@ -88,3 +40,24 @@ echo 'daemonize . /opt/etc/init.d/S91youtubeUnblock start' >> /jffs/scripts/post
 ```
 скрипт пропишется строчкой запуска при старте роутера.
 Вроде все.
+
+2. Инструкция по обновению с прошлой версии
+Останавливаем скрипт
+```
+/opt/etc/init.d/S91youtubeUnblock stop
+```
+```
+wget https://github.com/Di1Ly/OdroidGOAtari800/releases/download/New2/youtubeUnblock_1.0.0-e9b033c-armv7-3.2-1_armv7-3.2.ipk
+```
+opkg list-installed
+```
+Находим в списке пакет у которого начало содержит что то типа:
+```
+youtubeUnblock - 0.3.2-3d50c00-1
+```
+Удаляем старый пакет
+```
+opkg remove youtubeUnblock - 0.3.2-3d50c00-1
+```
+Переходи к пункту 1. (в начале инструкции).
+
