@@ -20,9 +20,23 @@ opkg install daemonize
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
 opkg install youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
 ```
+Настраиваем аргументы скрипта для запуска в режиме daemonize
+```
+nano /opt/etc/init.d/S91youtubeUnblock
+```
+Заменяем строчку
+```
+ARGS=""
+```
+на
+```
+ARGS="--daemonize"
+```
+Выходим и сохраняем - Ctrl+X, Y, Enter
+
 Запускаем наш скрипт в режиме демона.
 ```
-daemonize /opt/etc/init.d/S91youtubeUnblock start
+/opt/etc/init.d/S91youtubeUnblock start
 ```
 В принципе, в таком виде должно работать.
 Для проверки можно узнать статус
@@ -36,7 +50,7 @@ running
 Будет работать до перезагрузки роутера
 Думаю необходимо добавить запуск так: (НО ЭТО НАДО ПРОВЕРЯТЬ!!!)
 ```
-echo 'daemonize . /opt/etc/init.d/S91youtubeUnblock start' >> /jffs/scripts/post-mount
+echo '. /opt/etc/init.d/S91youtubeUnblock start' >> /jffs/scripts/post-mount
 ```
 скрипт пропишется строчкой запуска при старте роутера.
 Вроде все.
