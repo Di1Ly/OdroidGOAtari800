@@ -34,7 +34,7 @@ ARGS="--daemonize"
 ```
 Выходим и сохраняем - Ctrl+X, Y, Enter
 
-Запускаем наш скрипт в режиме демона.
+Запускаем наш скрипт
 ```
 /opt/etc/init.d/S91youtubeUnblock start
 ```
@@ -47,6 +47,11 @@ ARGS="--daemonize"
 ```
 running
 ```
+можно проверить прямо на своем роутере
+```
+curl --connect-to ::speedtest.selectel.ru https://manifest.googlevideo.com/100MB -k -o"c:\nul"
+```
+В колонке Current Speed будет скорость доступа к ресурсу (если ноль то доступа нет).
 Будет работать до перезагрузки роутера
 Думаю необходимо добавить запуск так: (НО ЭТО НАДО ПРОВЕРЯТЬ!!!)
 ```
