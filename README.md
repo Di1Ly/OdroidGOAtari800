@@ -17,8 +17,8 @@ opkg install daemonize
 ```
 Закачиваем пакет и устанавливаем.
 ```
-wget https://github.com/Di1Ly/OdroidGOAtari800/releases/download/v1.0.0-rc3/youtubeUnblock_1.0.0-37a517e-armv7-3.2-1_armv7-3.2.ipk
-opkg install youtubeUnblock_1.0.0-37a517e-armv7-3.2-1_armv7-3.2.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
+opkg install youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
 ```
 Запускаем наш скрипт в режиме демона.
 ```
