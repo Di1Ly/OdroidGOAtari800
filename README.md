@@ -20,19 +20,20 @@ opkg install daemonize
 wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/youtubeUnblock-1.1.0-1-473af29-entware-armv7-3.2.ipk
 opkg install youtubeUnblock-1.1.0-1-473af29-entware-armv7-3.2.ipk
 ```
-Настраиваем аргументы скрипта для запуска в режиме daemonize
+~~Настраиваем аргументы скрипта для запуска в режиме daemonize~~
 ```
-nano /opt/etc/init.d/S91youtubeUnblock
+~~nano /opt/etc/init.d/S91youtubeUnblock~~
 ```
-Заменяем строчку
-```
-ARGS=""
-```
-на
-```
-ARGS="--daemonize"
-```
-Выходим и сохраняем - Ctrl+X, Y, Enter
+~~Заменяем строчку~~
+~~```~~
+~~ARGS=""~~
+~~```~~
+~~на~~
+~~```~~
+~~ARGS="--daemonize"~~
+~~```~~
+~~Выходим и сохраняем - Ctrl+X, Y, Enter~~
+Зачеркнутое нет необходимости производить, так как после установки все готово к использованию.
 
 Запускаем наш скрипт
 ```
