@@ -17,8 +17,8 @@ opkg install daemonize
 ```
 Закачиваем пакет и устанавливаем.
 ```
-wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.0.0/youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
-opkg install youtubeUnblock-1.0.0-10-f37c3dd-entware-armv7-3.2.ipk
+wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/youtubeUnblock-1.1.0-1-473af29-entware-armv7-3.2.ipk
+opkg install youtubeUnblock-1.1.0-1-473af29-entware-armv7-3.2.ipk
 ```
 Настраиваем аргументы скрипта для запуска в режиме daemonize
 ```
