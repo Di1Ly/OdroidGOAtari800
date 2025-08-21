@@ -21,9 +21,9 @@ wget https://github.com/Waujito/youtubeUnblock/releases/download/v1.1.0/youtubeU
 opkg install youtubeUnblock-1.1.0-1-473af29-entware-armv7-3.2.ipk
 ```
 ~~Настраиваем аргументы скрипта для запуска в режиме daemonize~~
-```
+~~```~~
 ~~nano /opt/etc/init.d/S91youtubeUnblock~~
-```
+~~```~~
 ~~Заменяем строчку~~
 ~~```~~
 ~~ARGS=""~~
