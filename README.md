@@ -60,6 +60,7 @@ echo '. /opt/etc/init.d/S91youtubeUnblock start' >> /jffs/scripts/post-mount
 echo '. /opt/etc/init.d/S91youtubeUnblock restart' >> /jffs/scripts/nat-start
 echo '. /opt/etc/init.d/S91youtubeUnblock restart' >> /jffs/scripts/service-event
 echo '. /opt/etc/init.d/S91youtubeUnblock restart' >> /jffs/scripts/service-event-end
+chmod a+rx /jffs/scripts/*
 ```
 скрипт пропишется строчкой запуска при старте роутера.
 Вроде все.
